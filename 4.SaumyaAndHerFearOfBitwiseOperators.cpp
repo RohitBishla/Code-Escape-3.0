@@ -1,3 +1,37 @@
+// Method: 1 (Optimize)
+#include <bits/stdc++.h>
+
+using namespace std;
+
+bool ifset(int num , int i){
+    if(num&(1<<i)) return true;
+    else return false;
+}
+
+int main() {
+    int tc; cin>>tc;
+    while(tc--){
+        long long a , b , c; cin >> a >> b >> c;
+        long long ans = 1;
+        for(int i = 0 ; i <= 21 ; i++){
+            int totalSetBits = ifset(a,i) + ifset(b,i) + ifset(c,i);
+            if(totalSetBits == 1){
+                ans = 0;
+                break;
+            }
+            if(totalSetBits == 3){
+                ans *= 4;    
+            }
+        }
+        cout << ans << endl;
+    }
+    return 0;
+}
+
+
+// Method: 2
+
+
 #include<bits/stdc++.h>
 using namespace std;
 // (P|Q) = A , (Q|R) = B and (R|P) = C
@@ -74,7 +108,7 @@ int main(void) {
             if(b[i] == '?') count++;
             if(c[i] == '?') count++;
 
-            if(a[i] == '?' && b[i] == '?' && c[i] == '?'){
+            if(count == 3){
                 ans *= 4;
             }
         }
