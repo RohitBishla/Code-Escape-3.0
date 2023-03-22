@@ -1,9 +1,11 @@
-#include <cmath>
-#include <cstdio>
-#include <vector>
-#include <iostream>
-#include <algorithm>
+#include<bits/stdc++.h>
 using namespace std;
+
+// Approch: Backtracking Dynamic Programming
+// TC: O(n*m^2)
+// SC: O(n*m^2)
+
+
 int helper(int l, int r, int i, vector<vector<int>>& mat, vector<vector<vector<int>>>& dp){
     int n = mat.size();
     if(i == n) return 0;
@@ -43,15 +45,13 @@ int main() {
             cin >> mat[i][j];
         }
     }
-    // cout << "DONE" << endl;
     if(m == 0 || n == 0){
         cout << 0 << endl;
         return 0;
     }
     vector<vector<vector<int>>> dp(m + 1, vector<vector<int>>(m + 1, vector<int>(n + 1, -1)));
-    m--;
     
-    int ans = helper(0, m, 0, mat, dp) ;
+    int ans = helper(0, m - 1, 0, mat, dp) ;
     cout << ans << endl;
     return 0;
 }

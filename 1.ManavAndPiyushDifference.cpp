@@ -1,9 +1,7 @@
-#include <cmath>
-#include <cstdio>
-#include <vector>
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
+// TC: O(n)
+// SC: O(1)
 
 
 int main() {

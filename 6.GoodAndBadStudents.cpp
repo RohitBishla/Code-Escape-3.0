@@ -1,6 +1,9 @@
-
 #include<bits/stdc++.h>
 using namespace std;
+
+// Approch: BFS
+// TC: O(n^2)
+// SC: O(n^2)
 
 int maxDistance(vector<vector<int>>& arr) {
     int n = arr.size();
@@ -12,7 +15,7 @@ int maxDistance(vector<vector<int>>& arr) {
             }
         }
     }
-    if(qu.size() == 0) return -1;
+    if(qu.size() == 0 || qu.size() == n*n) return -1;
     qu.push({-1, -1});
     int ans = 0;
     while(!qu.empty()){
@@ -47,47 +50,6 @@ int maxDistance(vector<vector<int>>& arr) {
     }
     return ans;
 }
-
-
-
-// int maxDistance(vector<vector<int>>& arr) {
-//      int ans = 0;
-//      int step = 1;
-//      while(true){
-//          bool flag = true;
-//          for(int i = 0; i < n; i++){
-//              for(int j = 0; j < n; j++){
-//                  if(arr[i][j] == step){
-//                      if(i > 0 && arr[i - 1][j] == 0){
-//                          flag = false;
-//                          arr[i - 1][j] = step + 1;
-//                      }
-//                      if(j > 0 && arr[i][j - 1] == 0){
-//                          flag = false;
-//                          arr[i][j - 1] = step + 1;
-//                      }
-//                      if(i < n - 1 && arr[i + 1][j] == 0){
-//                          flag = false;
-//                          arr[i + 1][j] = step + 1;
-//                      }
-//                      if(j < n - 1 && arr[i][j + 1] == 0){
-//                          flag = false;
-//                          arr[i][j + 1] = step + 1;
-//                      }
-//                  }
-//              }
-//          }
-//          if(flag){
-//              break;
-//          }
-//          else{
-//              ans++;
-//              step++;
-//          }
-//      }
-//      if(ans == 0) return -1;
-//      return ans;
-// }
 
 
 int main() {
